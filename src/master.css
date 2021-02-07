@@ -1,0 +1,9 @@
+#canvas {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.canvas {
+  width: 100%;
+  margin: 0 auto;
+}

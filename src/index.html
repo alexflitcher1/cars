@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="html">
+  <head>
+    <meta charset="utf-8">
+    <title>Cars</title>
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
+    <script src="Road.js" charset="utf-8"></script>
+    <script src="Car.js" charset="utf-8"></script>
+    <script src="Enemy.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="master.css">
+  </head>
+  <body>
+    <div class="canvas">
+      <canvas id="canvas" width="1000" height="950"></canvas>
+    </div>
+    <script type="text/javascript">
+        var canvas = $('#canvas')[0];
+        var ctx = canvas.getContext('2d');
+        let road = new Image();
+        let car = new Image();
+        let enemy = new Image();
+        enemy.src = 'car.jpg';
+        road.src = 'road.jpg';
+        car.src = 'car.jpg';
+        $(document).ready(function() {
+          let Roads = new Road(road, 0, 0);
+          let Enemys = new Enemy(enemy, 100, 200);
+          let Cars = new Car(car, 400, 500, 100, 200, Enemys, Roads);
+          Enemys.draw();
+          Cars.draw();
+          Roads.draw();
+          Roads.animate();
+          Cars.animate();
+          Enemys.animate();
+        });
+    </script>
+  </body>
+</html>
